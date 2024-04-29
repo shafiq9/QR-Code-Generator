@@ -46,14 +46,34 @@ body{
 }
 
 .main-container button{
+    flex: 1;
     font-size: 16px;
     font-weight: 500;
     height: 50px;
-    background-color: #2e34d9;
+    background-color: #4b4bf0;
     color: #fff;
     border: 0;
     outline: 0;
     border-radius: 7px;
     cursor: pointer;
     padding: 7px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+#qrcodeContainer{
+    width: 200px;
+    border-radius: 7px;
+    max-height: 0;
+    overflow: hidden;
+}
+
+#qrcodeContainer img{
+    width: 100%;
+    padding: 10px;
+}
+
+#qrcodeContainer.show-container{
+    max-height: 300px;
+    margin: 10px auto;
+    border: 1px solid #2e2e2e;
 }

@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
-<body>
-    <div class="main-container">
-        <p>Enter your URL</p>
-        <div class="search-container">
-            <input type="text" name="" value="" placeholder="Your Text" id="textInput">
-            <button>Generate QR Code</button>
-            <div id="qrcodeContainer"></div>
-            <img src="" alt="QR code" id="qrCodeImage">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="main-container">
+            <p>Enter your URL</p>
+            <div class="search-container">
+                <input type="text" name="" value="" placeholder="Your Text" id="textInput">
+                <button onclick="generateQRCode()">Generate QR Code</button>
+                <div id="qrcodeContainer"></div>
+                <img src="" alt="QR code" id="qrCodeImage">
+            </div>
         </div>
-    </div>
-    
-</body>
+        
+        <!--https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example-->
+
+        <script>
+            let qrcodeContainer = document.getElementById("qrcodeContainer");
+            let qrCodeImage = document.getElementById("qrCodeImage");
+            let inputText = document.getElementById("textInput");
+
+            function generateQRCode(){
+                if(inputText.value.length > 0){
+                    qrCodeImage.src = 
+                    "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + 
+                     inputText.value;
+
+                    qrcodeContainer.classList.add("show-container");
+
+                    console.log("qrCodeImage.src", qrCodeImage.src);
+
+                }else{
+                    qrcodeContainer.classList.remove("show-container");
+                }
+            }
+        </script>
+    </body>
 </html>
